@@ -7,3 +7,9 @@
 --     created_at   (timestamp)     default to current timestamp
 --
 -- Write your query below:
+CREATE TABLE IF NOT EXISTS follows (
+	id SERIAL PRIMARY KEY,
+	following varchar NOT NULL REFERENCES users(email),
+	follower varchar NOT NULL REFERENCES users(email),
+	created_at timestamp DEFAULT now()
+);
